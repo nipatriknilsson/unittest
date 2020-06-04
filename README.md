@@ -1,5 +1,5 @@
 # unittest
-Unit testing of applications are one essential step for getting all programming done correctly. The concept used by this unit-testing script is to find all functions with the correct signature and call them one by one from a main function. It is done in C++, but I'm sure it can easily be adopted by all programming languages supported by gcc.
+Unit testing of applications are one essential step for getting all programming done correctly. The concept used by this unit-testing script is to find all functions with the correct signature and call them one by one from a main function. It is done in C++, but I'm sure it can easily be adopted by all programming languages supported by gcc. The script is tested with Ubuntu Linux.
 
 ~~~
 $ unittest --help
@@ -13,11 +13,11 @@ options:
 --help    this help
 
 This is a script to perform unit testing of gcc-compiled files.
-Create a function with prototype
-int unit_test_*(). This function will be called from the test script.
-You return 0 on success. Anything else is an error and is printed.
+Create a function with prototype "int unit_test_*()".
+The function will be called from a main loop.
+Return 0 on success. Anything else is an error and is printed.
 
-The unit function must be accessable from main().Example:
+The unit function must be accessable from main(). Example:
 int unit_test_addition_1_plus_1_eq_2 ()
 {
     return 1+1==2 ? 0 : 1;
@@ -50,6 +50,6 @@ Requires nm and gcc to work.
 Example of a command line including options to the compiler:
 unittest -p -f 2 build/testfilea.o build/testfilec.o -- -pthread -ldl
 
-Further examples, see the demo files.
+For further examples, see the demo files.
 ~~~
 

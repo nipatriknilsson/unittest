@@ -75,13 +75,13 @@ if [ "${arg_help}" == "1" ] ; then
     echo
 
     echo "This is a script to perform unit testing of gcc-compiled files."
-    echo "Create a function with prototype"
-    echo "int unit_test_*(). This function will be called from the test script."
-    echo "You return 0 on success. Anything else is an error and is printed."
+    echo "Create a function with prototype \"int unit_test_*()\"."
+    echo "The function will be called from a main loop."
+    echo "Return 0 on success. Anything else is an error and is printed."
 
     echo ""
 
-    echo "The unit function must be accessable from main().Example:"
+    echo "The unit function must be accessable from main(). Example:"
 
     echo "int unit_test_addition_1_plus_1_eq_2 ()"
     echo "{"
@@ -124,7 +124,7 @@ if [ "${arg_help}" == "1" ] ; then
 
     echo ""
 
-    echo "Further examples, see the demo files."
+    echo "For further examples, see the demo files."
 
     exit 1
 fi
