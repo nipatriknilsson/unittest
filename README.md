@@ -1,5 +1,5 @@
 # unittest
-Unit testing of applications are essential for getting all programming done correct. The concept used by this script is to find all functions with the correct signature and call them one by one from a main function. It is done in C++ but I'm sure it can easily be adopted by all programming languages supported by gcc.
+Unit testing of applications are one essential step for getting all programming done correctly. The concept used by this unit-testing script is to find all functions with the correct signature and call them one by one from a main function. It is done in C++, but I'm sure it can easily be adopted by all programming languages supported by gcc.
 
 ~~~
 $ unittest --help
