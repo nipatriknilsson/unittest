@@ -9,9 +9,23 @@ int unit_test_not_fail ()
 }
 
 /*
-int unit_test_fail ()
+int unit_test_multiple_fail ()
 {
-    return 1;
+    dosomething1;
+
+    if ( canfail1 )
+    {
+        return 1;
+    }
+
+    dosomething2;
+
+    if ( canfail2 )
+    {
+        return 2;
+    }
+    
+    return 0;
 }
 */
 

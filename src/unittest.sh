@@ -166,7 +166,6 @@ struct struct_unit
 struct_unit units [] =
 {
     $(cat ${testfile}.funcs | awk '{print "{" $0 "},"}')
-    { NULL, NULL, NULL }
 };
 
 //https://stackoverflow.com/questions/77005/how-to-automatically-generate-a-stacktrace-when-my-program-crashes
@@ -214,16 +213,14 @@ int main ( int argc, char **argv )
         }
     }
 
-    unsigned long countunits = 0;
-    for ( countunits = 0 ; units [ countunits ].funccall != NULL ; countunits ++ );
-
+    unsigned long countunits = sizeof ( units ) / sizeof ( struct_unit );
     unsigned long countfailed = 0;
 
     printf ( "Started testing of %ld units.\n", countunits );
 
     std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
 
-    for ( unsigned long processingunit = 0 ; units [ processingunit ].funccall != NULL ; processingunit ++ )
+    for ( unsigned long processingunit = 0 ; processingunit < countunits ; processingunit ++ )
     {
         if ( printonlyfailed == 0 )
         {
