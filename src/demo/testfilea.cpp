@@ -62,11 +62,11 @@ int unit_test_of_protected_class_function ()
 
 }
 
-//#include <stdio.h>
-//int main(int argc, char **argv)
-//{
-    //// must not interfere the built of test
-    //printf ( "Must not run!!!\n" );
-    //return 255;
-//}
+#include <stdio.h>
+int main(int argc, char **argv)
+{
+    // must not interfere the built of test
+    printf ( "Must not run!!!\n" );
+    return 255;
+}
 

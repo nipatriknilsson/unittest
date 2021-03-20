@@ -275,7 +275,12 @@ int main ( int argc, char **argv )
 EOF
 
 #echo -e "\n### cat $testfile.cpp ###\n" ; cat $testfile.cpp
-gcc -rdynamic -g -o ${testfile} ${testfile}.cpp $(cat $testfile.objs | tr '\n' ' ') -lstdc++ ${arg_linker}
+
+cat $testfile.objs | sed 's/\.o//' > $testfile.objsnoext
+cat $testfile.objsnoext | xargs -I '{}' -- cp -a '{}.o' '{}_unittest.o'
+cat $testfile.objsnoext | xargs -I '{}' -- strip -w -K '!main' -K '*' '{}_unittest.o'
+
+gcc -rdynamic -g -o ${testfile} ${testfile}.cpp $(cat $testfile.objsnoext | xargs -I '{}' -- echo '{}_unittest.o' | tr '\n' ' ') -lstdc++ ${arg_linker}
 
 argtestfile=
 
