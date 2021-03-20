@@ -91,7 +91,7 @@ if [ "${arg_help}" == "1" ] ; then
     echo ""
     echo "Compile the source file(s) to object files with debug symbols:"
 
-	echo "gcc -g -O -c -o build/testfilea.o src/demo/testfilea.cpp"
+    echo "gcc -g -O -c -o build/testfilea.o src/demo/testfilea.cpp"
     echo ""
     echo "You can provide a define to make all unit_test-functions unique:"
     echo "-DUNIT_TEST_UNIQUE_ID=\$\$(date +%015s%09N) (makefile syntax)"
@@ -106,7 +106,7 @@ if [ "${arg_help}" == "1" ] ; then
     echo ""
     echo "Run unit test:"
 
-	echo "unittest build/testfilea.o"
+    echo "unittest build/testfilea.o"
 
     echo ""
     echo "Output:"
