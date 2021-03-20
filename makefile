@@ -1,4 +1,10 @@
 
+all: build/demo
+
+.PHONY:
+clean:
+	rm -r build/*
+
 build/demo:
 	mkdir -p build
 	gcc -g -O -c -Isrc -o build/testfilea.o src/demo/testfilea.cpp

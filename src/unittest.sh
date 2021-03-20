@@ -139,7 +139,7 @@ if ! which gcc >/dev/null 2>&1 ; then
     exit 1
 fi
 
-cat $testfile.objs | xargs -I '{}' -- nm -n --demangle -l -f POSIX '{}' | grep -E '^unit_test_' | awk '{fu=substr($1,1,length($1)-2); pos=index($0,"\t") ; if(pos!=0) { fi=substr($0,pos+1) } print "\"" fi "\", \"" fu "\", " fu }' | sort --field-separator=':' -k1,1 -k2,2g  > ${testfile}.funcs
+cat $testfile.objs | xargs -I '{}' -- nm -n --demangle -l -f POSIX '{}' | grep -E '^(unit_test|unittest)_' | awk '{fu=substr($1,1,length($1)-2); pos=index($0,"\t") ; if(pos!=0) { fi=substr($0,pos+1) } print "\"" fi "\", \"" fu "\", " fu }' | sort --field-separator=':' -k1,1 -k2,2g  > ${testfile}.funcs
 
 #echo -e "\n### cat $testfile.objs ###\n" ; cat $testfile.objs
 
@@ -275,8 +275,7 @@ int main ( int argc, char **argv )
 EOF
 
 #echo -e "\n### cat $testfile.cpp ###\n" ; cat $testfile.cpp
-
-gcc -rdynamic -g -o ${testfile} ${testfile}.cpp $(cat $testfile.objs | tr '\n' ' ') -lstdc++  ${arg_linker}
+gcc -rdynamic -g -o ${testfile} ${testfile}.cpp $(cat $testfile.objs | tr '\n' ' ') -lstdc++ ${arg_linker}
 
 argtestfile=
 

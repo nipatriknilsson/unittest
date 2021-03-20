@@ -17,7 +17,12 @@ int unit_test_addition_1_plus_1_eq_2_abc ()
     return 1+1==2 ? 0 : 1;
 }
 
-UNIT_TEST(unit_test_addition_1_plus_1_eq_2)
+UNITTEST(addition_1_plus_1_eq_2)
+{
+    return 1+1==2 ? 0 : 1;
+}
+
+UNIT_TEST(addition_1_plus_1_eq_2)
 {
     return 1+1==2 ? 0 : 1;
 }

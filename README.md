@@ -31,7 +31,7 @@ You can provide a define to make all unit_test-functions unique:
 and define your unit-test function with:
 
 #include "unittest.h"
-UNIT_TEST(usingmacro)
+UNITTEST(usingmacro)
 {
     return 0;
 }

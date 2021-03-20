@@ -29,7 +29,7 @@ int unit_test_multiple_fail ()
 }
 */
 
-int unit_test_addition_1_plus_1_eq_2 ()
+int unittest_addition_1_plus_1_eq_2 ()
 {
     return 1+1==2 ? 0 : 1;
 }
@@ -61,4 +61,12 @@ int unit_test_of_protected_class_function ()
     return my.myprotectedfunction ();
 
 }
+
+//#include <stdio.h>
+//int main(int argc, char **argv)
+//{
+    //// must not interfere the built of test
+    //printf ( "Must not run!!!\n" );
+    //return 255;
+//}
 
