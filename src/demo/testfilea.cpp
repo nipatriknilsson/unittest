@@ -1,15 +1,15 @@
-int unit_test_returning_pass ()
+int unittest_returning_pass ()
 {
     return 0;
 }
 
-int unit_test_not_fail ()
+int unittest_not_fail ()
 {
     return 0;
 }
 
 /*
-int unit_test_multiple_fail ()
+int unittest_multiple_fail ()
 {
     dosomething1;
 
@@ -51,10 +51,10 @@ protected:
         return 0;
     }
 
-    friend int unit_test_of_protected_class_function ();
+    friend int unittest_of_protected_class_function ();
 };
 
-int unit_test_of_protected_class_function ()
+int unittest_of_protected_class_function ()
 {
     myclass my;
 
@@ -65,8 +65,10 @@ int unit_test_of_protected_class_function ()
 #include <stdio.h>
 int main ( int argc, char **argv )
 {
-    // must not interfere the built of unit test objects; stripped
-    printf ( "Conflicting main!!!\n" );
-    return 255;
+    // must not interfere the built of unit test objects
+    
+    printf ( "Conflicting main, doing nothing.\n" );
+    
+    return 0;
 }
 

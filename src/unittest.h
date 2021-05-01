@@ -5,6 +5,6 @@
 #define UNIT_TEST_UNIQUE_ID __COUNTER__
 #endif
 
-#define UNIT_TEST(x) MACRO_CONCAT ( int unit_test_, x, _, UNIT_TEST_UNIQUE_ID, __LINE__ ) ()
+#define UNIT_TEST(x) MACRO_CONCAT ( int unittest_, x, _, UNIT_TEST_UNIQUE_ID, __LINE__ ) ()
 
 #define UNITTEST UNIT_TEST

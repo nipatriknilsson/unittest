@@ -13,12 +13,12 @@ options:
 --help    this help
 
 This is a script to perform unit testing of gcc-compiled files.
-Create a function with prototype "int unit_test_*()".
+Create a function with prototype "int unittest_*()".
 The function will be called from a main loop.
 Return 0 on success. Anything else is an error and is printed.
 
 The unit function must be accessable from main(). Example:
-int unit_test_addition_1_plus_1_eq_2 ()
+int unittest_addition_1_plus_1_eq_2 ()
 {
     return 1+1==2 ? 0 : 1;
 }
@@ -41,8 +41,8 @@ unittest build/testfilea.o
 
 Output:
 Started testing of 2 units.
-/[...]/test/src/demo/testfilea.cpp:1:unit_test_returning_pass ... OK
-/[...]/test/src/demo/testfilea.cpp:6:unit_test_addition_1_plus_1_eq_2 ... OK
+/[...]/test/src/demo/testfilea.cpp:1:unittest_returning_pass ... OK
+/[...]/test/src/demo/testfilea.cpp:6:unittest_addition_1_plus_1_eq_2 ... OK
 Finished testing of 2 units in 0.000004s.
 
 Requires nm and gcc to work.
