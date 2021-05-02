@@ -98,7 +98,7 @@ if [ "${arg_help}" == "1" ] ; then
     echo "and define your unit-test function with:"
     echo ""
     echo "#include \"unittest.h\""
-    echo "UNIT_TEST(usingmacro)"
+    echo "UNITTEST(usingmacro)"
     echo "{"
     echo "    return 0;"
     echo "}"
@@ -109,7 +109,7 @@ if [ "${arg_help}" == "1" ] ; then
     echo "unittest build/testfilea.o"
 
     echo ""
-    echo "Output:"
+    echo "Example Output:"
     echo "Started testing of 2 units."
     echo "/[...]/test/src/demo/testfilea.cpp:1:unittest_returning_pass ... OK"
     echo "/[...]/test/src/demo/testfilea.cpp:6:unittest_addition_1_plus_1_eq_2 ... OK"

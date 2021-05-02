@@ -8,3 +8,4 @@
 #define UNIT_TEST(x) MACRO_CONCAT ( int unittest_, x, _, UNIT_TEST_UNIQUE_ID, __LINE__ ) ()
 
 #define UNITTEST UNIT_TEST
+#define UNITTEST_UNIQUE_ID UNIT_TEST_UNIQUE_ID
