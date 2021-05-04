@@ -47,7 +47,7 @@ Started testing of 2 units.
 /[...]/test/src/demo/testfilea.cpp:6:unittest_addition_1_plus_1_eq_2 ... OK
 Finished testing of 2 units in 0.000004s.
 
-Requires nm and gcc to work.
+Requires nm, gcc and strip to work.
 
 Example of a command line including options to the compiler:
 unittest -p -f 2 build/testfilea.o build/testfilec.o -- -pthread -ldl

@@ -126,7 +126,7 @@ if [ "${arg_help}" == "1" ] ; then
     echo "Finished testing of 2 units in 0.000004s."
     
     echo ""
-    echo "Requires nm and gcc to work."
+    echo "Requires nm, gcc and strip to work."
     echo ""
     
     echo "Example of a command line including options to the compiler:"
@@ -146,6 +146,11 @@ fi
 
 if ! which gcc >/dev/null 2>&1 ; then
     echo "Error: \"nm\" must be installed"
+    exit 1
+fi
+
+if ! which strip >/dev/null 2>&1 ; then
+    echo "Error: \"strip\" must be installed"
     exit 1
 fi
 
