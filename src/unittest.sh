@@ -25,6 +25,7 @@ while [ $# -gt 0 ]; do
         shift
         arg_output=$1
         shift
+        rm -f ${arg_output}.objs
         ;;
     
     -h)
@@ -53,10 +54,10 @@ while [ $# -gt 0 ]; do
         else
             arg_linker="${arg_linker} $1"
         fi
-
+    
         shift
         ;;
-
+    
     *)
         echo >> ${arg_output}.objs "$1"
         shift
