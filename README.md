@@ -3,19 +3,21 @@ Unit testing of applications are one essential step for getting all programming 
 
 ~~~
 $ unittest --help
-Copyright (c) 2020 Patrik Nilsson, MIT License
+Copyright (c) 2021 Patrik Nilsson, MIT License
 
-unittest [-p] [-f max_count] [object-files...] [-- options to the compiler]
+unittest [-p] [-o executable_unit_file  ] [-f max_count] [object-files...] [-- options to the compiler]
 options:
 -p        print only failed unit tests
 -f N      stop processing, when N units failed. Default 5.
+-o        executable output file (which can be used with i.e. gdb)
+          otherwise a temporary file is used
 -h        this help
 --help    this help
 
 This is a script to perform unit testing of gcc-compiled files.
 Create a function with prototype "int unittest_*()".
 The function will be called from a main loop.
-Return 0 on success. Anything else is an error and is printed.
+Return 0 on success. Anything else is an error and it is printed.
 
 The unit function must be accessable from main(). Example:
 int unittest_addition_1_plus_1_eq_2 ()
@@ -39,7 +41,7 @@ UNITTEST(usingmacro)
 Run unit test:
 unittest build/testfilea.o
 
-Output:
+Example Output:
 Started testing of 2 units.
 /[...]/test/src/demo/testfilea.cpp:1:unittest_returning_pass ... OK
 /[...]/test/src/demo/testfilea.cpp:6:unittest_addition_1_plus_1_eq_2 ... OK
