@@ -183,28 +183,28 @@ void exception_handler ( int sig )
 {
     void *array[10];
     size_t size;
-
+    
     // get void*'s for all entries on the stack
     size = backtrace ( array, 10 );
-
+    
     // print out all the frames to stderr
     fprintf ( stderr, "Error: signal %d:\n", sig );
     backtrace_symbols_fd ( array, size, STDERR_FILENO );
-
+    
     exit ( 255 );
 }
 
 int main ( int argc, char **argv )
 {
     signal ( SIGSEGV, exception_handler );
-
+    
     setbuf ( stdout, NULL );
-
+    
     unsigned long maxfailed = 5;
     int printonlyfailed = 0;
-
+    
     int opt = 0;
-
+    
     while ( ( opt = getopt ( argc, argv, "pf:" ) ) != -1 )
     {
         switch (opt)
@@ -212,33 +212,33 @@ int main ( int argc, char **argv )
             case 'p':
                 printonlyfailed = 1;
                 break;
-
+            
             case 'f':
                 maxfailed = atol ( optarg );
                 break;
-
+            
             default: /* '?' */
                 fprintf ( stderr, "Usage: %s [-m maxfailed=5 ]\n", argv [ 0 ] );
                 exit ( EXIT_FAILURE );
         }
     }
-
+    
     unsigned long countunits = sizeof ( units ) / sizeof ( struct_unit );
     unsigned long countfailed = 0;
-
+    
     printf ( "Started testing of %ld units.\n", countunits );
-
+    
     std::chrono::steady_clock::time_point start = std::chrono::steady_clock::now();
-
+    
     for ( unsigned long processingunit = 0 ; processingunit < countunits ; processingunit ++ )
     {
         if ( printonlyfailed == 0 )
         {
             printf ( "%s:%s ... ", units [ processingunit ].filenameline, units [ processingunit ].funcname );
         }
-
+        
         int ret = units [ processingunit ].funccall ();
-
+        
         if ( ret == 0 )
         {
             if ( printonlyfailed == 0 )
@@ -252,7 +252,7 @@ int main ( int argc, char **argv )
             {
                 printf ( "%s:%s ... ", units [ processingunit ].filenameline, units [ processingunit ].funcname );
             }
-
+            
             printf ( "FAILED (%d)\n", ret );
             countfailed ++;
             
@@ -262,10 +262,10 @@ int main ( int argc, char **argv )
             }
         }
     }
-
+    
     std::chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
     std::chrono::duration<double> elapsed_seconds = end-start;
-
+    
     if ( countfailed == 0 )
     {
         printf ( "Successfully finished testing of %ld units in %fs.\n", countunits, elapsed_seconds.count () );
@@ -279,7 +279,7 @@ int main ( int argc, char **argv )
             printf ( "Exited due to max failed reached.\n" );
         }
     }
-
+    
     exit ( EXIT_FAILURE );
 }
 EOF
@@ -300,7 +300,7 @@ fi
 
 ${arg_output} ${arg_single} -f ${arg_max} $argtestfile
 
-rm -v ${arg_temp}*
+rm ${arg_temp}*
 
 exit 0
 
