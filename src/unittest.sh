@@ -3,7 +3,7 @@
 set -e
 #set -x
 
-arg_temp=$(tempfile)
+arg_temp=$(mktemp)
 
 arg_output=${arg_temp}
 arg_help=0
@@ -69,7 +69,7 @@ done
 touch ${arg_output}.objs
 
 if [ "${arg_help}" == "1" ] ; then
-    echo "Copyright (c) 2021 Patrik Nilsson, MIT License"
+    echo "Copyright (c) 2022 Patrik Nilsson, MIT License"
 
     echo ""
 
